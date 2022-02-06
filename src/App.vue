@@ -1,20 +1,23 @@
 <template>
+  <div id="banner">    <p id="text">White Sox</p>
+  </div>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Dashboard/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Dashboard from './components/Dashboard.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Dashboard
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,5 +25,24 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  #banner {
+    background-color: #2c3e50;
+    color: azure;
+    height: 30px;
+    text-align: left;
+    p{
+      color: white;
+      padding: 5px 0px 0px 30px;
+    }
+
+
+
+  }
+
+
+
 }
+
+
 </style>
