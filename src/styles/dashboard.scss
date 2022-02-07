@@ -1,0 +1,53 @@
+h3 {
+  margin: 40px 0 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+
+#wrapper {
+  display: grid;
+  grid-gap: 1rem;
+  //background-color: #2c3e50;
+  //padding: 10px 40px 10px 40px;
+
+  .small-column{
+    float: left;
+    margin: 5px;
+   // width: 33.33%;
+
+  }
+
+  #up {
+    display: flex;
+    background-color: aliceblue;
+
+    #left {
+      background-color: aquamarine
+    }
+
+    #middle {
+      background-color: gray
+    }
+
+    #right {
+      background-color: red
+    }
+
+  }
+  #down { background-color: bisque; max-width: 400px; max-height: 400px;
+  }
+
+
+}
