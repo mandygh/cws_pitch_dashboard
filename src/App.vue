@@ -1,7 +1,6 @@
 <template>
   <div id="banner">    <p id="text">White Sox</p>
   </div>
-  <img alt="Vue logo" src="./assets/logo.png">
   <Dashboard/>
 </template>
 

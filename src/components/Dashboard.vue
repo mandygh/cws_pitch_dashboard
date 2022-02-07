@@ -1,12 +1,12 @@
 <template>
 
-  <div id="wrapper">w
+  <div id="wrapper">
     <div id="up">
       <div id="left" class="small-column">
         <div class="" v-if="data"> asdas {{ data.Play }}</div>
       </div>
       <div id="middle" v-if="data" class="small-column"> <StrikeZone/> </div>
-      <div id="right" class="small-column"> <BaseballField/> </div>
+      <div id="right" v-if="data" class="small-column"> <BaseballField/> </div>
     </div>
     <div id="down">
       <PlayVideo/>
