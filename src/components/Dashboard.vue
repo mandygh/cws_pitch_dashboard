@@ -5,12 +5,8 @@
       <div id="left" class="small-column">
         <div class="" v-if="data"> asdas {{ data.Play }}</div>
       </div>
-      <div id="middle" class="small-column">
-        <div class="" v-if="data"> asdas {{ data.Play }}</div>
-      </div>
-      <div id="right" class="small-column">
-        <div class="" v-if="data"> asdas {{ data.Play }}</div>
-      </div>
+      <div id="middle" v-if="data" class="small-column"> <StrikeZone/> </div>
+      <div id="right" class="small-column"> <BaseballField/> </div>
     </div>
     <div id="down">
       <PlayVideo/>
@@ -22,11 +18,15 @@
 <script>
 import {mapState} from "vuex";
 import PlayVideo from "@/components/PlayVideo";
+import StrikeZone from "@/components/StrikeZone";
+import BaseballField from "@/components/BaseballField";
 
 export default {
   name: "dashboard",
   computed: mapState(['data']),
   components: {
+    BaseballField,
+    StrikeZone,
     PlayVideo
   },
   created() {
