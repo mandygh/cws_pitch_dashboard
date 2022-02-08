@@ -25,6 +25,7 @@ body {background-color:lightgray;}
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  font-size: .94em;
 
   #banner {
     background-color: #2c3e50;

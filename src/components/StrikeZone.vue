@@ -1,17 +1,18 @@
 <template>
 
-  <div class="col-title"> <div class="text-highlight">Pitch location</div></div>
+  <div class="col-title">
+    <div class="text-highlight">Pitch location</div>
+  </div>
 
   <canvas id="ca"></canvas>
+  <div>
+    <ul>
+      <li><span class="label">Pitch type:</span> {{ data.gameEvent.pitch_type }}</li>
+      <li><span class="label">Velocity:</span> {{ extraData.velo }}</li>
+      <li><span class="label">Spin rate:</span> {{ extraData.spin }}</li>
 
-  <div v-if="extraData">      <ul >
-    <li>Pitch type: {{data.gameEvent.pitch_type}}</li>
-    <li >Velocity: {{extraData.velo}}</li>
-    <li >Spin rate: {{extraData.spin}}</li>
-
-  </ul></div>
-
-  <!-- Canvas -->
+    </ul>
+  </div>
 
 </template>
 
@@ -21,23 +22,23 @@ import {mapState} from "vuex";
 
 export default {
   name: 'Strike-zone',
-  computed: mapState(['data','pitcher', 'extraData']),
+  computed: mapState(['data', 'extraData']),
 
   setup() {
     return {
       message: 'Vue + ss API',
       vueCanvas: null,
       rectWidth: 50,
-      dashPattern: [1,5],
+      dashPattern: [1, 5],
     }
 
   },
   mounted() {
     var c = document.getElementById("ca");
-    c.height= 200;
-    c.width= 200;
+    c.height = 200;
+    c.width = 200;
     var ctx = c.getContext("2d");
-    ctx.translate(-50,0) //Decrease to left, Increase Up
+    ctx.translate(-50, 0) //Decrease to left, Increase Up
     this.vueCanvas = ctx;
     this.drawRect()
 
@@ -64,15 +65,15 @@ export default {
       this.vueCanvas.stroke();
 
       // VERTICAL LINES
-      this.drawLines(startingX + 33,startingY -outterZoneAdded,startingX + 33,endY + outterZoneAdded )
-      this.drawLines(startingX + 66,startingY -outterZoneAdded,startingX + 66,endY + outterZoneAdded )
+      this.drawLines(startingX + 33, startingY - outterZoneAdded, startingX + 33, endY + outterZoneAdded)
+      this.drawLines(startingX + 66, startingY - outterZoneAdded, startingX + 66, endY + outterZoneAdded)
 
       // HORIZONTAL LINES
-      this.drawLines(startingX - outterZoneAdded,startingY + 40,endX + outterZoneAdded,startingY + 40 )
-      this.drawLines(startingX - outterZoneAdded,startingY + 80,endX + outterZoneAdded,startingY + 80 )
+      this.drawLines(startingX - outterZoneAdded, startingY + 40, endX + outterZoneAdded, startingY + 40)
+      this.drawLines(startingX - outterZoneAdded, startingY + 80, endX + outterZoneAdded, startingY + 80)
 
       // SET BALL POSITION
-      this.setBall(startingX,endX,startingY,endY)
+      this.setBall(startingX, endX, startingY, endY)
 
     },
     calcDistFromCenter(first, end) {
@@ -85,31 +86,33 @@ export default {
 
     },
 
-    drawLines(moveToX,moveToY,lineToX,lineToY){
+    drawLines(moveToX, moveToY, lineToX, lineToY) {
       this.vueCanvas.beginPath();
-      this.vueCanvas.moveTo(moveToX,moveToY);
-      this.vueCanvas.lineTo(lineToX,lineToY);
+      this.vueCanvas.moveTo(moveToX, moveToY);
+      this.vueCanvas.lineTo(lineToX, lineToY);
       this.vueCanvas.strokeStyle = 'black';
       this.vueCanvas.setLineDash(this.dashPattern);
       this.vueCanvas.stroke();
     },
 
-    setBall(startingX,endX,startingY,endY){
+    setBall(startingX, endX, startingY, endY) {
       let xMiddle = this.calcDistFromCenter(startingX, endX)
       let yMiddle = this.calcDistFromCenter(startingY, endY)
       let realXCenter = startingX + xMiddle;
       let realYCenter = startingY + yMiddle;
+
       //Get pitch location
       function getStrikeZoneInfo(data) {
         return data.type_id == 1126;
       }
+
       let strikeZoneData = this.data.measurements.statistics.filter(getStrikeZoneInfo)[0];
       // DRAW BALL POSITION
       this.drawBall(this.getPointPosition(xMiddle, realXCenter, strikeZoneData.relative_x_pct), this.getPointPosition(yMiddle, realYCenter, strikeZoneData.relative_z_pct * -1), 3, 0, 2 * Math.PI);
 
     },
 
-    drawBall(x,y,r,startAngle,endAngle){
+    drawBall(x, y, r, startAngle, endAngle) {
       this.vueCanvas.beginPath();
       this.vueCanvas.arc(x, y, r, startAngle, endAngle);
       this.vueCanvas.strokeStyle = 'red';
@@ -125,7 +128,6 @@ export default {
 </script>
 
 <style>
-
 
 
 </style>

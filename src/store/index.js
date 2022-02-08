@@ -74,7 +74,7 @@ export default createStore({
 
             //Launch angle
             let la = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1005)[0]
-            extraData['la'] = la.value + " " + la.unit;
+            extraData['la'] = la.value + "°";
 
             //Hit type
             let ht = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1033)[0]

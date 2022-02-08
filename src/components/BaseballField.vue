@@ -1,17 +1,26 @@
 <template>
-  <div class="col-title"> <div class="text-highlight">Field Output</div>
+  <div class="col-title">
+    <div class="text-highlight">Field Output</div>
 
   </div>
   <canvas id="field"></canvas>
 
-  <div >      <ul class="horizontal-list" >
-    <li><div class="key-text">EV </div> <div class="horizontal-text-value">{{extraData.ev}}</div></li>
-    <li><div>LA </div> <div class="horizontal-text-value">{{extraData.la}}</div></li>
-    <li><div>Hit type </div><div class="horizontal-text-value">{{extraData.hitType}}</div></li>
-    <li><div>Result </div> <div class="horizontal-text-value">{{data.gameEvent.event[1].typ}}</div></li>
-
-
-  </ul></div>
+  <div>
+    <ul class="horizontal-list">
+      <li><span class="label">EV:</span>
+        <div class="horizontal-text-value">{{ extraData.ev }}</div>
+      </li>
+      <li><span class="label">LA:</span>
+        <div class="horizontal-text-value">{{ extraData.la }}</div>
+      </li>
+      <li><span class="label">Hit type:</span>
+        <div class="horizontal-text-value">{{ extraData.hitType }}</div>
+      </li>
+      <li><span class="label">Result:</span>
+        <div class="horizontal-text-value">{{ data.gameEvent.event[1].typ }}</div>
+      </li>
+    </ul>
+  </div>
 
   <!-- Canvas -->
 
@@ -136,7 +145,7 @@ export default {
   background-position: center;
 }
 
-.horizontal-elems{
+.horizontal-elems {
   display: flex;
 }
 

@@ -7,16 +7,17 @@ ul {
   padding: 0;
   width: 100%;
 }
-
+horizontal-list{
+  margin: 2px;
+}
 ul.horizontal-list {
   display: flex;
   list-style: none;
-  padding: 0;
   width: 100%;
 }
 
 ul.horizontal-list  li {
-  padding: .5em 0;
+  padding: .5em 5px;
   border-right: 1px solid #CCC;
 }
 
@@ -38,4 +39,17 @@ ul.horizontal-list  li {
 .col-title {
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+li {
+  margin-bottom: 2px;
+}
+
+.video-js .vjs-big-play-button{
+  font-size: 2em;
+  border-radius: 5em;
 }

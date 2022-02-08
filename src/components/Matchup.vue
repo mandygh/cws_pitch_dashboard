@@ -1,23 +1,21 @@
 <template>
   <div class="col-title"> <div class="text-highlight">Matchup</div></div>
 
-  <div class="matchup" v-if="stateFinal">
+  <div class="matchup">
 
     <div>
       <ul>
-        <li>Pitcher: {{ pitcher.fullName }}</li>
-        <li>Position: {{ pitcher.primaryPosition.name }}</li>
-        <li>Pitch hand: {{ data.gameMetaData.FThrows }}</li>
+        <li><span class="label">Pitcher:</span>  {{ pitcher.fullName }}</li>
+        <li><span class="label">Position:</span>  {{ pitcher.primaryPosition.name }}</li>
+        <li><span class="label">Pitch Hand:</span> {{ data.gameEvent.pitch_hand }}</li>
       </ul>
     </div>
-
     <hr>
-
     <div>
       <ul>
-        <li>Batter: {{ batter.fullName }}</li>
-        <li>Position: {{ batter.primaryPosition.name }}</li>
-        <li>Stance: {{ data.gameMetaData.FStance }}</li>
+        <li><span class="label">Batter:</span> {{ batter.fullName }}</li>
+        <li><span class="label">Position:</span>  {{ batter.primaryPosition.name }}</li>
+        <li><span class="label">Stance:</span>  {{ data.gameEvent.bat_side}}</li>
       </ul>
     </div>
 
@@ -38,7 +36,7 @@ const statsAPI = "https://statsapi.mlb.com/api/v1/people/"
 
 export default {
   name: 'Matchup',
-  computed: mapState(['data', 'pitcher', 'batter', 'stateFinal']),
+  computed: mapState(['data', 'pitcher', 'batter']),
 
   setup() {
     return {
