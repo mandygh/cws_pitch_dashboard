@@ -1,5 +1,6 @@
 <template>
-  Matchup
+  <div class="col-title"> <div class="text-highlight">Matchup</div></div>
+
   <div class="matchup" v-if="stateFinal">
 
     <div>
@@ -87,13 +88,6 @@ export default {
   width: 300px;
   background-size: cover;
   background-position: center;
-}
-
-
-ul {
-  list-style: none;
-  padding: 0;
-  width: 100%;
 }
 
 .matchup {

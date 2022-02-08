@@ -13,7 +13,7 @@ export default createStore({
         pitcher: null,
         batter: null,
         stateFinal: false,
-        velo: 0
+        extraData:{}
     },
     mutations: {
         SAVE_DATA(state, data) {
@@ -26,8 +26,10 @@ export default createStore({
             state.batter = data;
         },
 
-        SET_VELO(state, data) {
-            state.velo = data
+        SET_EXTRA_DATA(state,data){
+            state.extraData = data
+
+
         }
     },
     actions: {
@@ -37,14 +39,6 @@ export default createStore({
             const axios = inject('axios')  // inject axios
             axios.get(playDataUrl).then(result => {
                 commit('SAVE_DATA', result.data);
-
-                function getStrikeZoneInfo(data) {
-                    return data.type_id == 1028;
-                }
-
-                let info = result.data.measurements.statistics.filter(getStrikeZoneInfo)[0]
-                let velo = info.value + " " + info.unit;
-                commit('SET_VELO', velo);
                 return axios.get(statsAPI + this.state.data.gameMetaData.FPitcherID)
 
             }).then(result => {
@@ -53,13 +47,41 @@ export default createStore({
             }).then(result => {
                 commit('SAVE_BATTER', result.data.people[0]);
                 //axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-                this.state.stateFinal = true;
+                this.dispatch('setExtraData')
                 // return axios.get(savantURL+ this.state.data.gameMetaData.FBatterID)
             })
                 .catch(error => {
                     throw new Error(`API ${error}`);
                 });
 
+
+        },
+
+        setExtraData({commit}){
+            let extraData = {}
+
+            // VELOCITY
+            let velo = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1028)[0]
+            extraData['velo'] = velo.value + " " + velo.unit;
+
+            //Spin rate
+            let spin = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1000)[0]
+            extraData['spin'] = spin.value + " " + spin.unit;
+
+            //Exit velo
+            let ev = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1003)[0]
+            extraData['ev'] = ev.value + " " + ev.unit;
+
+            //Launch angle
+            let la = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1005)[0]
+            extraData['la'] = la.value + " " + la.unit;
+
+            //Hit type
+            let ht = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1033)[0]
+            extraData['hitType'] = ht.value;
+            commit('SET_EXTRA_DATA', extraData);
+
+            this.state.stateFinal = true;
 
         }
 

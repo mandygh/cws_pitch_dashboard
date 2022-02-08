@@ -1,12 +1,14 @@
 <template>
 
-  <div class="col-title">Pitch location</div>
+  <div class="col-title"> <div class="text-highlight">Pitch location</div></div>
 
   <canvas id="ca"></canvas>
 
-  <div>      <ul >
+  <div v-if="extraData">      <ul >
     <li>Pitch type: {{data.gameEvent.pitch_type}}</li>
-    <li v-if="velo">Velocity: {{velo}}</li>
+    <li >Velocity: {{extraData.velo}}</li>
+    <li >Spin rate: {{extraData.spin}}</li>
+
   </ul></div>
 
   <!-- Canvas -->
@@ -19,7 +21,7 @@ import {mapState} from "vuex";
 
 export default {
   name: 'Strike-zone',
-  computed: mapState(['data','pitcher', 'velo']),
+  computed: mapState(['data','pitcher', 'extraData']),
 
   setup() {
     return {
@@ -124,10 +126,6 @@ export default {
 
 <style>
 
-.col-title {
-  margin-top: 3px;
-  margin-bottom: 10px;
-}
 
 
 </style>

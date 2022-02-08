@@ -1,7 +1,19 @@
 <template>
-  <div class="">
-    <canvas id="field"></canvas>
-  </div>  <!-- Canvas -->
+  <div class="col-title"> <div class="text-highlight">Field Output</div>
+
+  </div>
+  <canvas id="field"></canvas>
+
+  <div >      <ul class="horizontal-list" >
+    <li><div class="key-text">EV </div> <div class="horizontal-text-value">{{extraData.ev}}</div></li>
+    <li><div>LA </div> <div class="horizontal-text-value">{{extraData.la}}</div></li>
+    <li><div>Hit type </div><div class="horizontal-text-value">{{extraData.hitType}}</div></li>
+    <li><div>Result </div> <div class="horizontal-text-value">{{data.gameEvent.event[1].typ}}</div></li>
+
+
+  </ul></div>
+
+  <!-- Canvas -->
 
   <!-- Add Rectangle Button -->
 </template>
@@ -12,7 +24,7 @@ import {mapState} from "vuex";
 
 export default {
   name: 'Baseball-field',
-  computed: mapState(['data']),
+  computed: mapState(['data', 'extraData']),
 
   setup() {
     return {
@@ -122,6 +134,10 @@ export default {
   width: 300px;
   background-size: cover;
   background-position: center;
+}
+
+.horizontal-elems{
+  display: flex;
 }
 
 </style>
