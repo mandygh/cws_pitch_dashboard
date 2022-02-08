@@ -20,6 +20,6 @@ npm run serve
 ## Notes
  - `Vue 3` was used as JS Framework
  - External API like `statsApi` were used
- - All the data including visualizations are extracted, transformed and represented automatically from the API's. So if we use the same data structure with other play, we can represent the information
- - The stadium image does not represent the true dimensions of the park. Trajectory of the ball and position of the players are represented by the data provided
+ - The stadium image does not represent the true dimensions of the park.
+ - All the data including visualizations(Players position, ball trajectory, pitch location) are extracted, transformed and represented automatically from the API's. So if we use the same data structure with other play, we can represent the information
 
