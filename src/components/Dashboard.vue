@@ -1,16 +1,23 @@
 <template>
 
-  <div id="wrapper">
-    <div id="up">
-      <div id="left" class="small-column">
-        <div class="" v-if="data"> asdas {{ data.Play }}</div>
+  <div id="wrapper" v-if="stateFinal">
+    <div class="up" >
+      <div class="small-column-grid">
+        <div class="small-column" >
+          <Matchup/>
+        </div>
+        <div class="small-column">
+          <PlayVideo/>
+        </div>
       </div>
-      <div id="middle" v-if="data" class="small-column"> <StrikeZone/> </div>
-      <div id="right" v-if="data" class="small-column"> <BaseballField/> </div>
+      <div  class="small-column">
+        <StrikeZone/>
+      </div>
+      <div class="small-column">
+        <BaseballField/>
+      </div>
     </div>
-    <div id="down">
-      <PlayVideo/>
-    </div>
+
   </div>
 </template>
 
@@ -20,14 +27,16 @@ import {mapState} from "vuex";
 import PlayVideo from "@/components/PlayVideo";
 import StrikeZone from "@/components/StrikeZone";
 import BaseballField from "@/components/BaseballField";
+import Matchup from "@/components/Matchup";
 
 export default {
   name: "dashboard",
-  computed: mapState(['data']),
+  computed: mapState(['stateFinal']),
   components: {
     BaseballField,
     StrikeZone,
-    PlayVideo
+    PlayVideo,
+    Matchup
   },
   created() {
     this.$store.dispatch('loadData');
