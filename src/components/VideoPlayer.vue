@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="video">
     <video ref="videoPlayer" class="video-js"></video>
   </div>
 </template>
@@ -36,6 +36,10 @@ export default {
 </script>
 
 <style lang="scss">
+.video{
+  min-width: 300px;
+
+}
 @import 'video.js/dist/video-js';
 </style>
 

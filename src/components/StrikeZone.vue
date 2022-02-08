@@ -1,8 +1,14 @@
 <template>
-  <div class="">
-    <canvas id="ca"></canvas>
-  </div>
-  <div>afafaf</div>
+
+  <div class="col-title">Pitch location</div>
+
+  <canvas id="ca"></canvas>
+
+  <div>      <ul >
+    <li>Pitch type: {{data.gameEvent.pitch_type}}</li>
+    <li v-if="velo">Velocity: {{velo}}</li>
+  </ul></div>
+
   <!-- Canvas -->
 
 </template>
@@ -13,20 +19,23 @@ import {mapState} from "vuex";
 
 export default {
   name: 'Strike-zone',
-  computed: mapState(['data']),
+  computed: mapState(['data','pitcher', 'velo']),
 
   setup() {
     return {
       message: 'Vue + ss API',
       vueCanvas: null,
       rectWidth: 50,
-      dashPattern: [1,5]
+      dashPattern: [1,5],
     }
 
   },
   mounted() {
     var c = document.getElementById("ca");
+    c.height= 200;
+    c.width= 200;
     var ctx = c.getContext("2d");
+    ctx.translate(-50,0) //Decrease to left, Increase Up
     this.vueCanvas = ctx;
     this.drawRect()
 
@@ -114,6 +123,12 @@ export default {
 </script>
 
 <style>
+
+.col-title {
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
 
 </style>
 
