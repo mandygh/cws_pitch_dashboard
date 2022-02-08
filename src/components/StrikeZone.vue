@@ -1,18 +1,26 @@
 <template>
-
-  <div class="col-title">
-    <div class="text-highlight">Pitch location</div>
-  </div>
-
-  <canvas id="ca"></canvas>
   <div>
-    <ul>
-      <li><span class="label">Pitch type:</span> {{ data.gameEvent.pitch_type }}</li>
-      <li><span class="label">Velocity:</span> {{ extraData.velo }}</li>
-      <li><span class="label">Spin rate:</span> {{ extraData.spin }}</li>
+    <div class="row">
+      <div class="col-title">
+        <div class="text-highlight">Pitch location</div>
+      </div>
+    </div>
 
-    </ul>
+    <div class="row">
+      <canvas id="ca"></canvas>
+    </div>
+
+    <div class="row">
+      <ul>
+        <li><span class="label">Pitch type:</span> {{ data.gameEvent.pitch_type }}</li>
+        <li><span class="label">Velocity:</span> {{ extraData.velo }}</li>
+        <li><span class="label">Spin rate:</span> {{ extraData.spin }}</li>
+      </ul>
+    </div>
+
   </div>
+
+
 
 </template>
 
@@ -127,7 +135,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+//canvas{max-width: 245px}
 
 
 </style>

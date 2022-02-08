@@ -1,24 +1,32 @@
 <template>
 
-  <div id="wrapper" v-if="stateFinal">
-    <div class="up" >
-      <div class="small-column-grid">
-        <div class="small-column" >
-          <Matchup/>
+  <div class="container" v-if="stateFinal">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="small-column">
+            <Matchup/>
+          </div>
         </div>
+        <div class="row">
+          <div class="small-column">
+            <PlayVideo/>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="small-column" id="pitch-location">
+          <StrikeZone/>
+        </div>
+      </div>
+      <div class="col">
         <div class="small-column">
-          <PlayVideo/>
+          <BaseballField/>
         </div>
-      </div>
-      <div  class="small-column">
-        <StrikeZone/>
-      </div>
-      <div class="small-column">
-        <BaseballField/>
       </div>
     </div>
-
   </div>
+
 </template>
 
 
@@ -45,6 +53,4 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
-@import 'src/styles/dashboard';
-</style>
+<style lang="scss" scoped></style>

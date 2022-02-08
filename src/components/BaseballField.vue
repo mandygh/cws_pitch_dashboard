@@ -1,11 +1,17 @@
 <template>
-  <div class="col-title">
-    <div class="text-highlight">Field Output</div>
 
+  <div class="row">
+    <div class="col-title">
+      <div class="text-highlight">Field Output</div>
+    </div>
   </div>
-  <canvas id="field"></canvas>
 
-  <div>
+  <div class="row-field">
+    <canvas id="field"></canvas>
+  </div>
+
+
+  <div class="row">
     <ul class="horizontal-list">
       <li><span class="label">EV:</span>
         <div class="horizontal-text-value">{{ extraData.ev }}</div>
@@ -135,7 +141,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 #field {
   background-image: url("../images/baseballField.png");

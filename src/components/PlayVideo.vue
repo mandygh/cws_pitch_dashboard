@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <video-player :options="videoOptions"/>
-  </div>
+  <div class="row">
+    <div class="col-title">
+      <div class="text-highlight">Video</div>
+    </div>
+  </div>    <video-player :options="videoOptions"/>
 </template>
 
 <script>

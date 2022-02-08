@@ -53,3 +53,27 @@ li {
   font-size: 2em;
   border-radius: 5em;
 }
+.horizontal-list{
+  margin: 0px 0px 0px 10px;
+}
+
+.small-column{
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  // width: 33.33%;
+  border-radius: 5px;
+  box-shadow: 4px 3px 8px 1px #969696;
+  -webkit-box-shadow: 4px 3px 8px 1px #969696;
+  background-color: white;
+
+}
+
+.col{
+  width: fit-content !important;
+}
+
+#pitch-location{
+  min-height: 385px;
+  margin-left: 25px;
+}

@@ -1,7 +1,13 @@
 <template>
-  <div id="banner">    <p id="text">White Sox</p>
+  <div class="container">
+    <div class="row">
+      <div id="banner"><p id="text">White Sox</p>
+      </div>
+      <div class="row">
+        <Dashboard/>
+      </div>
+    </div>
   </div>
-  <Dashboard/>
 </template>
 
 <script>
@@ -10,14 +16,17 @@ import Dashboard from './components/Dashboard.vue'
 export default {
   name: 'App',
   components: {
-    Dashboard
+    Dashboard,
   }
 }
 </script>
 
 <style lang="scss">
 
-body {background-color:lightgray;}
+body {
+  background-color: lightgray;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,17 +41,14 @@ body {background-color:lightgray;}
     color: azure;
     height: 30px;
     text-align: left;
-    p{
+
+    p {
       color: white;
       padding: 5px 0px 0px 30px;
     }
 
 
-
   }
-
-
-
 }
 
 
