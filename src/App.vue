@@ -1,11 +1,16 @@
 <template>
-<div class ="container">
-  <div class="row" id="front-banner"> <span>SOX</span> </div>
-  <div class="row" id="back-banner"></div>
+  <div class="container">
+    <div class="row" id="front-banner"><span>SOX</span></div>
+    <div class="row" id="back-banner"></div>
 
 
-  <div class="row" id="dash-wrapper"><Dashboard/></div>
-</div>
+    <div class="row" id="dash-wrapper">
+      <Dashboard/>
+    </div>
+
+    <hr style="color: #b70c00">
+    <hr style="color: #2c3e50">
+  </div>
 </template>
 
 <script>
@@ -19,15 +24,18 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
-#front-banner{
-  width: 900px;
+#front-banner {
   height: 50px;
-  position: absolute;
-  background-color:#2c3e50;
+  max-width: 900px;
+  background-color: #2c3e50;
+  border-bottom: 5px solid #b70c00;
 
-  span{
+  border-radius: 5px;
+  //display: table;
+
+  span {
     width: fit-content;
     height: fit-content;
     font-size: 35px;
@@ -35,34 +43,14 @@ export default {
   }
 
 }
-#back-banner{
-  top:10px;
-  bottom: 10px;
-  //z-index: 8;
-  //max-width: 400px;
-  height: 56px;
-  width: 900px;
-  background-color: #b70c00;
-  border-radius: 5px;
-}
 
-#dash-wrapper{
+#dash-wrapper {
   max-width: 900px;
 
 }
-body {
-  background-color: lightgray;
-}
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  //margin-top: 60px;
-  font-size: .94em;
+.container {
+  max-width: 900px;
 }
-
 
 </style>
