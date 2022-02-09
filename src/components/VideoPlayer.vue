@@ -24,22 +24,17 @@ export default {
   },
   mounted() {
     this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady() {
-      console.log('onPlayerReady', this);
     })
-  },
-  beforeUnmount() {
-    if (this.player) {
-      this.player.dispose()
-    }
   }
 }
 </script>
 
 <style lang="scss">
-.video{
+.video {
   min-width: 300px;
 
 }
+
 @import 'video.js/dist/video-js';
 </style>
 

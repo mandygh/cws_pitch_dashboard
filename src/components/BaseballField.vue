@@ -1,11 +1,17 @@
 <template>
-  <div class="col-title">
-    <div class="text-highlight">Field Output</div>
 
+  <div class="row">
+    <div class="col-title">
+      <div class="text-highlight">Field Output</div>
+    </div>
   </div>
-  <canvas id="field"></canvas>
 
-  <div>
+  <div class="row-field">
+    <canvas id="field"></canvas>
+  </div>
+
+
+  <div class="row">
     <ul class="horizontal-list">
       <li><span class="label">EV:</span>
         <div class="horizontal-text-value">{{ extraData.ev }}</div>
@@ -17,7 +23,7 @@
         <div class="horizontal-text-value">{{ extraData.hitType }}</div>
       </li>
       <li><span class="label">Result:</span>
-        <div class="horizontal-text-value">{{ data.gameEvent.event[1].typ }}</div>
+        <div class="horizontal-text-value">{{ getEventResult() }}</div>
       </li>
     </ul>
   </div>
@@ -50,9 +56,7 @@ export default {
     let ctx = c.getContext("2d");
     ctx.translate(350, 370)
     this.vueCanvas = ctx;
-
     this.drawRect()
-
 
   },
   methods: {
@@ -69,10 +73,10 @@ export default {
 
         let data = statistics[i];
 
-        if (data.type_id == 1059) {
+        if (data.type_id === 1059) {
           map[data.target_id] = {"distance": data.value}
         }
-        if (data.type_id == 1061) {
+        if (data.type_id === 1061) {
           map[data.target_id]["angle"] = data.value
         }
       }
@@ -123,19 +127,23 @@ export default {
 
     getCoordinates(p, a) {
       //console.log("Distance "+ p + " Angle" + a)
-
       if (a < 0) {
         return [p * Math.cos(Math.PI / 2 - a), p * Math.sin(Math.PI / 2 - a)];
       } else {
         return [-p * Math.cos(Math.PI / 2 - a), p * Math.sin(Math.PI / 2 - a)];
       }
+    },
+
+    getEventResult(){
+      let result =  this.data.gameEvent.event[1].typ
+      return result.charAt(0).toUpperCase() + result.slice(1)
     }
   }
 
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 #field {
   background-image: url("../images/baseballField.png");

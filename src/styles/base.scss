@@ -7,9 +7,7 @@ ul {
   padding: 0;
   width: 100%;
 }
-horizontal-list{
-  margin: 2px;
-}
+
 ul.horizontal-list {
   display: flex;
   list-style: none;
@@ -30,8 +28,7 @@ ul.horizontal-list  li {
   color: white;
 }
 
-.horizontal-text-key{
-}
+
 .horizontal-text-value{
   padding: 4px;
 }
@@ -45,11 +42,36 @@ ul.horizontal-list  li {
   font-weight: bold;
 }
 
-li {
-  margin-bottom: 2px;
-}
-
 .video-js .vjs-big-play-button{
   font-size: 2em;
   border-radius: 5em;
 }
+.horizontal-list{
+  margin: 0 0 0 10px;
+}
+
+.small-column{
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 4px 3px 8px 1px #969696;
+  -webkit-box-shadow: 4px 3px 8px 1px #969696;
+  background-color: white;
+
+}
+
+body {
+  background-color: #f5f6f6;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  font-size: .94em;
+}
+
+
