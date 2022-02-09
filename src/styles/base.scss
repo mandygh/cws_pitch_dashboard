@@ -54,7 +54,6 @@ ul.horizontal-list  li {
   float: left;
   margin: 5px;
   padding: 5px;
-  // width: 33.33%;
   border-radius: 5px;
   box-shadow: 4px 3px 8px 1px #969696;
   -webkit-box-shadow: 4px 3px 8px 1px #969696;
@@ -63,7 +62,7 @@ ul.horizontal-list  li {
 }
 
 body {
-  background-color: #ebedee;
+  background-color: #f5f6f6;
 }
 
 #app {
@@ -72,7 +71,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  //margin-top: 60px;
   font-size: .94em;
 }
 

@@ -23,7 +23,7 @@
         <div class="horizontal-text-value">{{ extraData.hitType }}</div>
       </li>
       <li><span class="label">Result:</span>
-        <div class="horizontal-text-value">{{ data.gameEvent.event[1].typ }}</div>
+        <div class="horizontal-text-value">{{ getEventResult() }}</div>
       </li>
     </ul>
   </div>
@@ -132,6 +132,11 @@ export default {
       } else {
         return [-p * Math.cos(Math.PI / 2 - a), p * Math.sin(Math.PI / 2 - a)];
       }
+    },
+
+    getEventResult(){
+      let result =  this.data.gameEvent.event[1].typ
+      return result.charAt(0).toUpperCase() + result.slice(1)
     }
   }
 

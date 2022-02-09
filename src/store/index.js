@@ -13,7 +13,8 @@ export default createStore({
         pitcher: null,
         batter: null,
         stateFinal: false,
-        extraData: {}
+        extraData: {},
+        zone:{}
     },
     mutations: {
         SAVE_DATA(state, data) {
@@ -35,7 +36,6 @@ export default createStore({
     actions: {
 
         loadData({commit}) {
-            console.log(this.state.stateFinal)
             const axios = inject('axios')  // inject axios
             axios.get(playDataUrl).then(result => {
                 commit('SAVE_DATA', result.data);
