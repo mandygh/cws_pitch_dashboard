@@ -7,9 +7,7 @@ ul {
   padding: 0;
   width: 100%;
 }
-horizontal-list{
-  margin: 2px;
-}
+
 ul.horizontal-list {
   display: flex;
   list-style: none;
@@ -54,7 +52,7 @@ li {
   border-radius: 5em;
 }
 .horizontal-list{
-  margin: 0px 0px 0px 10px;
+  margin: 0 0 0 10px;
 }
 
 .small-column{
@@ -70,10 +68,7 @@ li {
 }
 
 .col{
-  width: fit-content !important;
+ // width: fit-content !important;
 }
 
-#pitch-location{
-  min-height: 385px;
-  margin-left: 25px;
-}
+

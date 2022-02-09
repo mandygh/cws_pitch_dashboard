@@ -3,7 +3,8 @@
     <div class="col-title">
       <div class="text-highlight">Video</div>
     </div>
-  </div>    <video-player :options="videoOptions"/>
+  </div>
+  <video-player :options="videoOptions"/>
 </template>
 
 <script>
@@ -19,7 +20,7 @@ export default {
       videoOptions: {
         autoplay: false,
         controls: true,
-        fluid:true,
+        fluid: true,
         sources: [
           {
             src:

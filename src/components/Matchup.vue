@@ -4,12 +4,11 @@
       <div class="text-highlight">Matchup</div>
     </div>
   </div>
-
-  <div  id="matchup">
+  <div id="matchup">
     <div class="column">
       <ul>
         <li><span class="label">Pitcher: </span>{{ pitcher.fullName }}</li>
-        <li><span class="label">Position:</span>  {{ pitcher.primaryPosition.name }}</li>
+        <li><span class="label">Position:</span> {{ pitcher.primaryPosition.name }}</li>
         <li><span class="label">Pitch Hand:</span> {{ data.gameEvent.pitch_hand }}</li>
       </ul>
     </div>
@@ -17,19 +16,16 @@
     <div class="column">
       <ul>
         <li><span class="label">Batter:</span> {{ batter.fullName }}</li>
-        <li><span class="label">Position:</span>  {{ batter.primaryPosition.name }}</li>
-        <li><span class="label">Stance:</span>  {{ data.gameEvent.bat_side}}</li>
+        <li><span class="label">Position:</span> {{ batter.primaryPosition.name }}</li>
+        <li><span class="label">Stance:</span> {{ data.gameEvent.bat_side }}</li>
       </ul>
     </div>
   </div>
 
-
 </template>
 
 <script>
-
 import {mapState} from "vuex";
-
 
 export default {
   name: 'Matchup',
@@ -38,9 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.row {
 
-}
 #matchup {
   display: inline-flex;
   grid-gap: 10px;

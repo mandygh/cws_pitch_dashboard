@@ -13,7 +13,7 @@ export default createStore({
         pitcher: null,
         batter: null,
         stateFinal: false,
-        extraData:{}
+        extraData: {}
     },
     mutations: {
         SAVE_DATA(state, data) {
@@ -26,7 +26,7 @@ export default createStore({
             state.batter = data;
         },
 
-        SET_EXTRA_DATA(state,data){
+        SET_EXTRA_DATA(state, data) {
             state.extraData = data
 
 
@@ -54,30 +54,29 @@ export default createStore({
                     throw new Error(`API ${error}`);
                 });
 
-
         },
 
-        setExtraData({commit}){
+        setExtraData({commit}) {
             let extraData = {}
 
             // VELOCITY
-            let velo = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1028)[0]
+            let velo = this.state.data.measurements.statistics.filter(elem => elem.type_id === 1028)[0]
             extraData['velo'] = velo.value + " " + velo.unit;
 
             //Spin rate
-            let spin = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1000)[0]
+            let spin = this.state.data.measurements.statistics.filter(elem => elem.type_id === 1000)[0]
             extraData['spin'] = spin.value + " " + spin.unit;
 
             //Exit velo
-            let ev = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1003)[0]
+            let ev = this.state.data.measurements.statistics.filter(elem => elem.type_id === 1003)[0]
             extraData['ev'] = ev.value + " " + ev.unit;
 
             //Launch angle
-            let la = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1005)[0]
+            let la = this.state.data.measurements.statistics.filter(elem => elem.type_id === 1005)[0]
             extraData['la'] = la.value + "°";
 
             //Hit type
-            let ht = this.state.data.measurements.statistics.filter(elem => elem.type_id == 1033)[0]
+            let ht = this.state.data.measurements.statistics.filter(elem => elem.type_id === 1033)[0]
             extraData['hitType'] = ht.value;
             commit('SET_EXTRA_DATA', extraData);
 

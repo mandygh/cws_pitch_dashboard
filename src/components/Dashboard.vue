@@ -2,7 +2,7 @@
 
   <div class="container" v-if="stateFinal">
     <div class="row">
-      <div class="col">
+      <div class="col" id="matchup-video-col">
         <div class="row">
           <div class="small-column">
             <Matchup/>
@@ -53,4 +53,15 @@ export default {
 </script>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#pitch-location {
+  min-height: 385px;
+  min-width: 180px;
+  margin-left: 25px;
+}
+
+#matchup-video-col {
+  margin-top: 2px;
+}
+
+</style>

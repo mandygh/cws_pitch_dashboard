@@ -21,7 +21,6 @@
   </div>
 
 
-
 </template>
 
 <script>
@@ -42,10 +41,10 @@ export default {
 
   },
   mounted() {
-    var c = document.getElementById("ca");
+    let c = document.getElementById("ca");
     c.height = 200;
     c.width = 200;
-    var ctx = c.getContext("2d");
+    let ctx = c.getContext("2d");
     ctx.translate(-50, 0) //Decrease to left, Increase Up
     this.vueCanvas = ctx;
     this.drawRect()
@@ -55,12 +54,10 @@ export default {
   methods: {
     drawRect() {
 
-      const xOffset = 100;
-      const yOffset = 20;
-      const outterZoneAdded = 15
+      const startingX = 100;
+      const startingY = 20;
+      const outerZoneAdded = 15
 
-      let startingX = 0 + xOffset
-      let startingY = 0 + yOffset
       let endX = startingX + 100
       let endY = startingY + 120
 
@@ -73,12 +70,12 @@ export default {
       this.vueCanvas.stroke();
 
       // VERTICAL LINES
-      this.drawLines(startingX + 33, startingY - outterZoneAdded, startingX + 33, endY + outterZoneAdded)
-      this.drawLines(startingX + 66, startingY - outterZoneAdded, startingX + 66, endY + outterZoneAdded)
+      this.drawLines(startingX + 33, startingY - outerZoneAdded, startingX + 33, endY + outerZoneAdded)
+      this.drawLines(startingX + 66, startingY - outerZoneAdded, startingX + 66, endY + outerZoneAdded)
 
       // HORIZONTAL LINES
-      this.drawLines(startingX - outterZoneAdded, startingY + 40, endX + outterZoneAdded, startingY + 40)
-      this.drawLines(startingX - outterZoneAdded, startingY + 80, endX + outterZoneAdded, startingY + 80)
+      this.drawLines(startingX - outerZoneAdded, startingY + 40, endX + outerZoneAdded, startingY + 40)
+      this.drawLines(startingX - outerZoneAdded, startingY + 80, endX + outerZoneAdded, startingY + 80)
 
       // SET BALL POSITION
       this.setBall(startingX, endX, startingY, endY)
@@ -136,10 +133,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-//canvas{max-width: 245px}
-
-
+.col-title {
+  margin-top: 10px;
+}
 </style>
 
 

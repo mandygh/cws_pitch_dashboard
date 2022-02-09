@@ -1,13 +1,11 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div id="banner"><p id="text">White Sox</p>
-      </div>
-      <div class="row">
-        <Dashboard/>
-      </div>
-    </div>
-  </div>
+<div class ="container">
+  <div class="row" id="front-banner"> <span>SOX</span> </div>
+  <div class="row" id="back-banner"></div>
+
+
+  <div class="row" id="dash-wrapper"><Dashboard/></div>
+</div>
 </template>
 
 <script>
@@ -23,6 +21,35 @@ export default {
 
 <style lang="scss">
 
+#front-banner{
+  width: 900px;
+  height: 50px;
+  position: absolute;
+  background-color:#2c3e50;
+
+  span{
+    width: fit-content;
+    height: fit-content;
+    font-size: 35px;
+    color: white;
+  }
+
+}
+#back-banner{
+  top:10px;
+  bottom: 10px;
+  //z-index: 8;
+  //max-width: 400px;
+  height: 56px;
+  width: 900px;
+  background-color: #b70c00;
+  border-radius: 5px;
+}
+
+#dash-wrapper{
+  max-width: 900px;
+
+}
 body {
   background-color: lightgray;
 }
@@ -33,22 +60,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  //margin-top: 60px;
   font-size: .94em;
-
-  #banner {
-    background-color: #2c3e50;
-    color: azure;
-    height: 30px;
-    text-align: left;
-
-    p {
-      color: white;
-      padding: 5px 0px 0px 30px;
-    }
-
-
-  }
 }
 
 

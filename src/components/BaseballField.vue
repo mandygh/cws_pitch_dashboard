@@ -56,9 +56,7 @@ export default {
     let ctx = c.getContext("2d");
     ctx.translate(350, 370)
     this.vueCanvas = ctx;
-
     this.drawRect()
-
 
   },
   methods: {
@@ -75,10 +73,10 @@ export default {
 
         let data = statistics[i];
 
-        if (data.type_id == 1059) {
+        if (data.type_id === 1059) {
           map[data.target_id] = {"distance": data.value}
         }
-        if (data.type_id == 1061) {
+        if (data.type_id === 1061) {
           map[data.target_id]["angle"] = data.value
         }
       }
@@ -129,7 +127,6 @@ export default {
 
     getCoordinates(p, a) {
       //console.log("Distance "+ p + " Angle" + a)
-
       if (a < 0) {
         return [p * Math.cos(Math.PI / 2 - a), p * Math.sin(Math.PI / 2 - a)];
       } else {
