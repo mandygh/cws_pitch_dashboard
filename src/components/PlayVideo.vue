@@ -34,5 +34,6 @@ export default {
 };
 </script>
 
-
-
+<style lang="scss" scoped>
+.col-title{margin-top: 2px}
+</style>
